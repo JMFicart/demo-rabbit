@@ -23,14 +23,14 @@ public class RabbitConfig {
         return new Queue("facture_queue", true,  false, false);
     }
 
-    @Bean("reservation_queue")
+    @Bean("reserve_queue")
     public Queue reserveQueue(){
         return new Queue("reserve_queue", true, false, false);
     }
 
     @Bean
     public DirectExchange exchange( ){
-        return new DirectExchange("reserva.facture");
+        return new DirectExchange("reserve.facture");
     }
     @Bean
     public Binding fBind(DirectExchange exchange, @Qualifier("facture_queue") Queue queue){
@@ -38,7 +38,7 @@ public class RabbitConfig {
     }
 
     @Bean
-    public Binding rBind(DirectExchange exchange, @Qualifier("reservation_queue") Queue queue){
+    public Binding rBind(DirectExchange exchange, @Qualifier("reserve_queue") Queue queue){
         return BindingBuilder.bind(queue).to(exchange).with("reservation");
     }
 
@@ -46,5 +46,4 @@ public class RabbitConfig {
         System.out.println(queues);
         return new ArrayList<>();
     }
-
 }

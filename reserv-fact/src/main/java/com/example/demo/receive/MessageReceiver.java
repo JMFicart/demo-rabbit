@@ -21,10 +21,10 @@ public class MessageReceiver {
         logger.info("Facture received - " + f);
     }
 
-    @RabbitListener(queues="reservation_queue")
+    @RabbitListener(queues="reserve_queue")
     public void receiveReservation(String message) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         Reservation r = mapper.readValue(message, Reservation.class);
-        logger.info("Reservation received - " + message);
+        logger.info("Reservation received - " + r);
     }
 }

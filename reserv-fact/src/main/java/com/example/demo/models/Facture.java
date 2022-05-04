@@ -5,6 +5,8 @@ import java.util.UUID;
 
 @Data
 public class Facture {
+    public Facture() {
+    }
 
     private double prix;
     private UUID reserv_ref;

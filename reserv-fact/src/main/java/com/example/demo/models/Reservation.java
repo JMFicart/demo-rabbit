@@ -13,6 +13,16 @@ public class Reservation {
     private LocalDate depart; // on part du principe: départ à 12h
     private Status status;
 
+    public Reservation(UUID ref, LocalDate arrive, LocalDate depart, Status status) {
+        this.ref = ref;
+        this.arrive = arrive;
+        this.depart = depart;
+        this.status = status;
+    }
+
+    public Reservation() {
+    }
+
     public static enum Status {
         DEMANDE,
         FACTURE

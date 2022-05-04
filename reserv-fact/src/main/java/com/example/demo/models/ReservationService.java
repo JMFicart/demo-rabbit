@@ -12,6 +12,6 @@ public abstract class ReservationService {
 
     public abstract void setToFacture(UUID ref);
 
-    public abstract List<Reservation> getReservFactures();
+    public abstract List<Reservation> getReserveFactures();
 
 }
